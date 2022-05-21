@@ -191,25 +191,29 @@ async def draw_info_card(uid, qid, nickname, raw_data, max_chara=None, group_id=
     # 华丽宝箱
     text_draw.text((860, 1197), stats.luxurious_chest.__str__(), '#caae93', get_font(36))
     # 蒙德
-    world = world_explorations['蒙德']
-    text_draw.text((370, 1370), str(world.exploration_percentage) + '%', '#d4aa6b', get_font(32))
-    text_draw.text((370, 1414), 'Lv.' + str(world.level), '#d4aa6b', get_font(32))
-    text_draw.text((370, 1456), stats.anemoculus.__str__(), '#d4aa6b', get_font(32))
+    #world = world_explorations['蒙德']
+    world = world_explorations.get('蒙德')
+    text_draw.text((370, 1370), str(world.exploration_percentage) + '%' if world else "未探索", '#d4aa6b', get_font(32))
+    text_draw.text((370, 1414), 'Lv.' + str(world.level) if world else "未探索", '#d4aa6b', get_font(32))
+    text_draw.text((370, 1456), stats.anemoculus.__str__() if world else "未探索", '#d4aa6b', get_font(32))
     # 璃月
-    world = world_explorations['璃月']
-    text_draw.text((896, 1370), str(world.exploration_percentage) + '%', '#d4aa6b', get_font(32))
-    text_draw.text((896, 1414), 'Lv.' + str(world.level), '#d4aa6b', get_font(32))
-    text_draw.text((896, 1456), stats.geoculus.__str__(), '#d4aa6b', get_font(32))
+    #world = world_explorations['璃月']
+    world = world_explorations.get('璃月')
+    text_draw.text((896, 1370), str(world.exploration_percentage) + '%' if world else "未探索", '#d4aa6b', get_font(32))
+    text_draw.text((896, 1414), 'Lv.' + str(world.level) if world else "未探索", '#d4aa6b', get_font(32))
+    text_draw.text((896, 1456), stats.geoculus.__str__() if world else "未探索", '#d4aa6b', get_font(32))
     # 雪山
-    world = world_explorations['龙脊雪山']
-    text_draw.text((350, 1555), str(world.exploration_percentage) + '%', '#d4aa6b', get_font(32))
-    text_draw.text((350, 1612), 'Lv.' + str(world.level), '#d4aa6b', get_font(32))
+    #world = world_explorations['龙脊雪山']
+    world = world_explorations.get('龙脊雪山')
+    text_draw.text((350, 1555), str(world.exploration_percentage) + '%' if world else "未探索", '#d4aa6b', get_font(32))
+    text_draw.text((350, 1612), 'Lv.' + str(world.level) if world else "未探索", '#d4aa6b', get_font(32))
     # 稻妻
-    world = world_explorations['稻妻']
-    text_draw.text((880, 1543), str(world.exploration_percentage) + '%', '#d4aa6b', get_font(24))
-    text_draw.text((880, 1576), 'Lv.' + str(world.level), '#d4aa6b', get_font(24))
-    text_draw.text((880, 1606), 'Lv.' + str(world.offerings[0].level), '#d4aa6b', get_font(24))
-    text_draw.text((880, 1639), stats.electroculus.__str__(), '#d4aa6b', get_font(24))
+    #world = world_explorations['稻妻']
+    world = world_explorations.get('稻妻')
+    text_draw.text((880, 1543), str(world.exploration_percentage) + '%' if world else "未探索", '#d4aa6b', get_font(24))
+    text_draw.text((880, 1576), 'Lv.' + str(world.level) if world else "未探索", '#d4aa6b', get_font(24))
+    text_draw.text((880, 1606), 'Lv.' + str(world.offerings[0].level) if world else "未探索", '#d4aa6b', get_font(24))
+    text_draw.text((880, 1639), stats.electroculus.__str__() if world else "未探索", '#d4aa6b', get_font(24))
     
     # 渊下宫
     world = world_explorations.get('渊下宫')
